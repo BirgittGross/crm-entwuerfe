@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CRM-Entwürfe – Übergabe an die Entwicklung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF3FA; --surface:#FFFFFF; --ink:#0B1E3A; --muted:#3E4F68; --line:#D3DEEE;
+  --firma:#1E5FBF; --firma-soft:#DCE8F8;
+  --kand:#3B7A1E; --kand-soft:#E3F2D3;
+  --proj:#0E3A7A; --proj-soft:#C9DBF4;
+  --note:#FFF4B8; --note-ink:#5C4A00;
+  --focus:#7FB2F5;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1626; --surface:#152238; --ink:#E8EEF8; --muted:#A9B8CF; --line:#2A3B57;
+    --firma:#7FB2F5; --firma-soft:#1B3357;
+    --kand:#9BD67A; --kand-soft:#1F3517;
+    --proj:#A9C8F2; --proj-soft:#1C3354;
+    --note:#3D3410; --note-ink:#F3DE8A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1626; --surface:#152238; --ink:#E8EEF8; --muted:#A9B8CF; --line:#2A3B57;
+  --firma:#7FB2F5; --firma-soft:#1B3357;
+  --kand:#9BD67A; --kand-soft:#1F3517;
+  --proj:#A9C8F2; --proj-soft:#1C3354;
+  --note:#3D3410; --note-ink:#F3DE8A;
+  color-scheme: dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.55}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header.top{padding:56px 0 28px}
+header.top h1{margin:0 0 14px;font-size:clamp(30px,5vw,46px);line-height:1.08;font-weight:800;letter-spacing:-0.025em;max-width:16ch}
+header.top p{margin:0;max-width:62ch;color:var(--muted);font-size:18px}
+.fb{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;margin:0 8px 8px 0;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:700;font-size:15px;text-decoration:none}
+.fb-primary{background:var(--proj);border-color:var(--proj);color:var(--surface)}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.legend span{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:15px;font-weight:600}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:8px 0 48px}
+.lane{background:var(--surface);border-radius:14px;border:1px solid var(--line);overflow:hidden}
+.lane h2{margin:0;padding:14px 18px;font-size:19px;font-weight:800;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.lane h2 i{width:14px;height:14px;border-radius:4px}
+.lane ul{list-style:none;margin:0;padding:6px 0}
+.lane li a{display:block;padding:12px 18px;text-decoration:none}
+.lane li a strong{display:block;font-size:16px;font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.lane li a span{font-size:14px;color:var(--muted)}
+.lane li a:hover strong{text-decoration-thickness:2px}
+.firma{--c:var(--firma);--cs:var(--firma-soft)}
+.kand{--c:var(--kand);--cs:var(--kand-soft)}
+.proj{--c:var(--proj);--cs:var(--proj-soft)}
+.lane{border-top:6px solid var(--c)}
+.lane h2 i,.legend i.c{background:var(--c)}
+section.draft{background:var(--surface);border:1px solid var(--line);border-left:8px solid var(--c);border-radius:14px;padding:26px 28px 28px;margin:0 0 22px}
+section.draft header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;margin-bottom:6px}
+section.draft h3{margin:0;font-size:24px;font-weight:800;letter-spacing:-0.015em;line-height:1.2}
+.open{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:10px;background:var(--c);color:var(--surface);font-weight:700;font-size:15px;text-decoration:none}
+:root[data-theme="dark"] .open{color:#0D1626}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .open{color:#0D1626}}
+.sub{margin:0 0 18px;color:var(--muted);max-width:70ch}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:8px 36px}
+h4{margin:18px 0 6px;font-size:16px;font-weight:800;color:var(--c)}
+section.draft ul{margin:0;padding-left:20px}
+section.draft li{margin:0 0 6px;max-width:68ch}
+.hint{margin-top:20px;padding:14px 16px;border-radius:10px;background:var(--cs);font-size:16px}
+.hint strong{font-weight:800}
+.same{font-size:16px;color:var(--muted);margin:-8px 0 22px 4px}
+footer.notes{margin:46px 0 60px;padding:24px 26px;border-radius:14px;background:var(--note);color:var(--note-ink)}
+footer.notes h2{margin:0 0 10px;font-size:20px;font-weight:800}
+footer.notes ul{margin:0;padding-left:20px}
+footer.notes li{margin-bottom:6px;max-width:72ch}
+h2.block{font-size:15px;font-weight:700;color:var(--muted);margin:0 0 12px}
+@media (max-width:560px){section.draft{padding:20px 18px 22px}body{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<h1>CRM-Entwürfe für die Umsetzung</h1>
+<p>Hier liegen die aktuellen Entwürfe für Unternehmen, Kandidaten und Projekte, jeweils mit Link zum klickbaren Entwurf und einer Liste, was sich gegenüber dem bisherigen Stand ändert. Die Farben entsprechen den Bereichen im CRM.</p>
+<p style="margin-top:14px"><a class="fb" href="https://github.com/BirgittGross/crm-entwuerfe/issues">Fragen und Rückmeldungen ansehen</a> <a class="fb fb-primary" href="https://github.com/BirgittGross/crm-entwuerfe/issues/new">Neue Frage oder Rückmeldung</a></p>
+<div class="legend" aria-label="Farblegende">
+<span class="firma"><i class="c"></i>Unternehmen</span>
+<span class="kand"><i class="c"></i>Kandidaten</span>
+<span class="proj"><i class="c"></i>Projekte</span>
+</div>
+</header>
+
+<h2 class="block">Alle Entwürfe auf einen Blick</h2>
+<div class="map">
+<div class="lane firma"><h2><i aria-hidden="true"></i>Unternehmen</h2><ul>
+<li><a href="#weidner"><strong>Weidner &amp; Partner Steuerberater</strong><span>Interessent ohne Projekt, Akquisephase</span></a></li>
+<li><a href="#brandtner"><strong>Brandtner Metallbau GmbH</strong><span>Interessent mit hohem Potenzial, Projektphase</span></a></li>
+</ul></div>
+<div class="lane kand"><h2><i aria-hidden="true"></i>Kandidaten</h2><ul>
+<li><a href="#kandidat"><strong>Kandidaten-Header</strong><span>Lifecycle, Interviewnotes, Wiedervorlagen</span></a></li>
+</ul></div>
+<div class="lane proj"><h2><i aria-hidden="true"></i>Projekte</h2><ul>
+<li><a href="#projekt"><strong>Assistenz der Geschäftsführung</strong><span>Stelleninformationen und Stellenanzeigen</span></a></li>
+<li><a href="#projekt"><strong>Finanzbuchhalter mit DATEV</strong><span>gleicher Aufbau, andere Daten</span></a></li>
+</ul></div>
+</div>
+
+<section class="draft firma" id="weidner" aria-labelledby="h-weidner">
+<header><h3 id="h-weidner">Unternehmen: Weidner &amp; Partner</h3><a class="open" href="unternehmen-weidner.html">Entwurf öffnen</a></header>
+<p class="sub">Vorlage für Unternehmen, die noch kein Projekt haben und gerade akquiriert werden.</p>
+<div class="cols">
+<div>
+<h4>Kopfbereich</h4>
+<ul>
+<li>Die Adresse steht direkt hinter dem Firmennamen.</li>
+<li>Das Status-Kästchen oben rechts entfällt; der Status steht in der Karte darunter.</li>
+</ul>
+<h4>Karte „Potenzial Unternehmen“</h4>
+<ul>
+<li>Gelbes Kästchen „Akquisephase (kein Projekt)“ neben der Überschrift.</li>
+<li>Konditionen und AGB-Status stehen gemeinsam in einem Kasten; fehlende AGB rot.</li>
+<li>Akquise-Stufen „Recherche“ und „Profil gesendet mit Angebot“, jeweils mit Kürzel und Datum, anklickbar.</li>
+<li>Nächstes ToDo mit Datum und Uhrzeit, rot hervorgehoben.</li>
+<li>Kommentar darunter, immer sichtbar.</li>
+</ul>
+</div>
+<div>
+<h4>Ein- und Ausklappen</h4>
+<ul>
+<li>Button „Übersicht einklappen“ unter der Karte. Er blendet die Kacheln, Adresse, Ansprechpartner, Historie und die Reiter aus.</li>
+</ul>
+<h4>Kacheln und Reiter</h4>
+<ul>
+<li>„Mögliche Positionen“ steht als erste Kachel.</li>
+<li>Reiter vorerst nur „Firmeninformationen“ und „Dokumente“.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="draft firma" id="brandtner" aria-labelledby="h-brandtner">
+<header><h3 id="h-brandtner">Unternehmen: Brandtner Metallbau</h3><a class="open" href="unternehmen-brandtner.html">Entwurf öffnen</a></header>
+<p class="sub">Gleicher Aufbau wie Weidner &amp; Partner, hier für ein Unternehmen mit laufendem Projekt.</p>
+<ul>
+<li>Karte heißt „Interessent (hohes Potenzial)“, daneben „Projektphase (1 offen)“.</li>
+<li>Vier Stufen aus der Historie: Anfrage Website, Termin vor Ort, AGB unterschrieben, Erster Auftrag, jeweils mit Kürzel und Datum.</li>
+<li>„AGB liegt vor“ in Blau mit Haken statt rot.</li>
+<li>Zusätzlicher Button „Profil senden“ oben rechts.</li>
+</ul>
+</section>
+
+<section class="draft kand" id="kandidat" aria-labelledby="h-kandidat">
+<header><h3 id="h-kandidat">Kandidaten-Header</h3><a class="open" href="kandidat.html">Entwurf öffnen</a></header>
+<p class="sub">Der obere Bereich bleibt immer stehen, alles ab „Kontakt“ lässt sich einklappen.</p>
+<div class="cols">
+<div>
+<h4>Immer sichtbar</h4>
+<ul>
+<li>Foto, Name, Position, Ort und Button „Stellenanzeige versenden“.</li>
+<li>Kennzahlen-Zeile; unter dem Jahresgehalt steht „Verfügbarkeit“ (Kündigungsfrist), unter dem Arbeitszeitmodell eine eigene Zeile „Homeoffice“.</li>
+<li>Kommentar und darunter die aktuelle Wiedervorlage, rot wenn fällig.</li>
+</ul>
+<h4>Einklappbar</h4>
+<ul>
+<li>Kontakt, Wiedervorlagen (vollständige Liste), Historie, Kenntnisse und alle Reiter.</li>
+</ul>
+</div>
+<div>
+<h4>Reiter</h4>
+<ul>
+<li>Neu und beim Öffnen gewählt: „Lifecycle“. Danach „Interviewnotes“, dann die bestehenden Reiter. „Stellenanzeige versenden“ steht vor „Sperrvermerke“.</li>
+<li>Lifecycle: Auswahllisten für Status und Nächste Aktion (beide synchron mit dem Kopf), Zeitstempel „Zuletzt aktualisiert“ mit Aktualisieren-Button, Info-Feld.</li>
+<li>Interviewnotes: Textfeld mit Formatierung (fett, kursiv, Überschrift, Listen, Einzug). Tab rückt ein, Umschalt+Tab rückt aus.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="draft proj" id="projekt" aria-labelledby="h-projekt">
+<header><h3 id="h-projekt">Projekte</h3><a class="open" href="projekt-assistenz.html">Assistenz öffnen</a></header>
+<p class="sub">Beide Projekt-Entwürfe haben denselben Aufbau. Der zweite zeigt dieselben Funktionen mit anderen Daten: <a href="projekt-fibu.html">Finanzbuchhalter mit DATEV öffnen</a>.</p>
+<div class="cols">
+<div>
+<h4>Kopfbereich</h4>
+<ul>
+<li>Hinter dem Titel „Berufsfeld: …“.</li>
+<li>Darunter Firma mit Adresse im dunkelblauen Kasten, darunter der Ort.</li>
+<li>Konditionen und AGB-Status rechtsbündig auf Höhe des Orts.</li>
+<li>Buttons „Stellenanzeige“ und „Dokument“ oben entfallen.</li>
+<li>Bei Vergütung zusätzlich „Besetzung ab“.</li>
+<li>Kommentar und darunter die aktuelle Wiedervorlage bleiben immer sichtbar. Alles darunter ist beim Öffnen eingeklappt.</li>
+</ul>
+<h4>Reiter</h4>
+<ul>
+<li>Stelleninformationen (Start), Stellenanzeige, Kandidatenvorschlag, Zugewiesene Kandidaten, Passende Kandidaten, Informationen zum Unternehmen.</li>
+<li>Profil, Anforderungen, Aufgaben und Benefits entfallen als Reiter; sie stecken jetzt im Formular.</li>
+</ul>
+</div>
+<div>
+<h4>Stelleninformationen</h4>
+<ul>
+<li>Formular mit Eckdaten, Aufgaben, Anforderungen, Benefits, Unternehmensbeschreibung und Ansprechpartner.</li>
+<li>Listenfelder arbeiten mit Bullet Points; Enter beginnt einen neuen Punkt.</li>
+<li>KI-Vorschläge auf Basis des Positionstitels für Aufgaben, Anforderungen und Benefits, als anklickbare Kästchen zum Übernehmen. Für die Unternehmensbeschreibung ein Textvorschlag mit „Übernehmen“ und „Verwerfen“.</li>
+<li>Button „Stellenanzeige erstellen“ schreibt daraus die Anzeige.</li>
+</ul>
+<h4>Stellenanzeige</h4>
+<ul>
+<li>Übersicht aller Anzeigen zum Projekt mit Kanälen, Laufzeit und Status (Entwurf, Bereit, Geplant); Anzeigen anlegen, bearbeiten, duplizieren.</li>
+<li>Editor mit Formatierung und „Text kopieren“.</li>
+<li>Karte „Interne Daten“: Projekt (Pflicht), Anzeigentemplate, Kopf-Grafik, Interne Stellen, Informationen.</li>
+<li>Kanäle in dieser Reihenfolge: Homepage, Indeed, StepStone, XING, LinkedIn, Bundesagentur für Arbeit. Jeder mit eigener Laufzeit; die kostenpflichtigen zusätzlich mit „Preis netto“.</li>
+</ul>
+</div>
+</div>
+<div class="hint"><strong>Offen:</strong> echte Preise je Kanal, echte Auswahllisten für Anzeigentemplate und Kopf-Grafik, Laufzeit für die Bundesagentur.</div>
+</section>
+
+<footer class="notes" aria-labelledby="h-notes">
+<h2 id="h-notes">Gut zu wissen</h2>
+<ul>
+<li>Die Entwürfe sind klickbar, speichern aber nichts dauerhaft. Nach dem Neuladen stehen wieder die Beispieldaten da.</li>
+<li>Namen, Adressen, Beschreibungen und Beispielanzeigen sind Platzhalter.</li>
+<li>Die KI-Vorschläge zeigen in dieser Online-Version feste Standard-Vorschläge passend zur Position. Für das CRM braucht es eine eigene KI-Anbindung.</li>
+<li>Fragen und Rückmeldungen bitte als <a href="https://github.com/BirgittGross/crm-entwuerfe/issues/new">Issue</a> anlegen, gern mit Bezug auf den Entwurf, z. B. „Projekt: Stellenanzeige“.</li>
+</ul>
+</footer>
+</div>
+</body>
+</html>
