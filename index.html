@@ -105,7 +105,7 @@ h2.block{font-size:15px;font-weight:700;color:var(--muted);margin:0 0 12px}
 <div class="map">
 <div class="lane firma"><h2><i aria-hidden="true"></i>Unternehmen</h2><ul>
 <li><a href="#weidner"><strong>Weidner &amp; Partner Steuerberater</strong><span>Interessent ohne Projekt, Akquisephase</span></a></li>
-<li><a href="#brandtner"><strong>Brandtner Metallbau GmbH</strong><span>Interessent mit hohem Potenzial, Projektphase</span></a></li>
+<li><a href="#brandtner"><strong>Brandtner Metallbau GmbH</strong><span>Interessent mit hohem Potenzial, laufendes Projekt</span></a></li>
 </ul></div>
 <div class="lane kand"><h2><i aria-hidden="true"></i>Kandidaten</h2><ul>
 <li><a href="#kandidat"><strong>Kandidaten-Header</strong><span>Lifecycle, Interviewnotes, Wiedervorlagen</span></a></li>
@@ -124,25 +124,29 @@ h2.block{font-size:15px;font-weight:700;color:var(--muted);margin:0 0 12px}
 <h4>Kopfbereich</h4>
 <ul>
 <li>Die Adresse steht direkt hinter dem Firmennamen.</li>
-<li>Das Status-Kästchen oben rechts entfällt; der Status steht in der Karte darunter.</li>
+<li>Darunter zwei weiße Rahmen untereinander: „Branche: …“ und der Ort (z. B. „Berlin – Spandau“).</li>
+<li>Buttons oben rechts: Profil senden, Anrufen, E-Mail, Dokument, Mehr.</li>
 </ul>
 <h4>Karte „Potenzial Unternehmen“</h4>
 <ul>
-<li>Gelbes Kästchen „Akquisephase (kein Projekt)“ neben der Überschrift.</li>
-<li>Konditionen und AGB-Status stehen gemeinsam in einem Kasten; fehlende AGB rot.</li>
-<li>Akquise-Stufen „Recherche“ und „Profil gesendet mit Angebot“, jeweils mit Kürzel und Datum, anklickbar.</li>
-<li>Nächstes ToDo mit Datum und Uhrzeit, rot hervorgehoben.</li>
+<li>Rotes Kästchen „Akquisephase (kein Projekt)“ neben der Überschrift.</li>
+<li>Konditionen und AGB-Status gemeinsam in einem Kasten; fehlende AGB rot.</li>
+<li>Die Akquise-Stufen entfallen.</li>
+<li>Rote Zeile „Wiedervorlage“: Art (z. B. Anruf), Datum und Uhrzeit, Text und Kürzel.</li>
 <li>Kommentar darunter, immer sichtbar.</li>
 </ul>
 </div>
 <div>
 <h4>Ein- und Ausklappen</h4>
 <ul>
-<li>Button „Übersicht einklappen“ unter der Karte. Er blendet die Kacheln, Adresse, Ansprechpartner, Historie und die Reiter aus.</li>
+<li>Button „Übersicht einklappen“ unter der Karte. Er blendet alles darunter aus.</li>
 </ul>
-<h4>Kacheln und Reiter</h4>
+<h4>Übersicht</h4>
 <ul>
-<li>„Mögliche Positionen“ steht als erste Kachel.</li>
+<li>Karte „Wiedervorlage“ (scrollbar) links neben dem Kasten „Akquise“.</li>
+<li>Kasten „Akquise“: oben „Mögliche Positionen“, darunter „Kandidatenprofilvertrieb“ (Profil, gesendet, Empfänger, Reaktion).</li>
+<li>Eine gemeinsame Karte für Adresse, Unternehmensdaten (Mitarbeitende, Karriereseite) und Ansprechpartner.</li>
+<li>Historie und Projekte jeweils mit Scrollbalken rechts bis zum Kartenende; in der Projekt-Tabelle ist alles ohne seitliches Scrollen sichtbar.</li>
 <li>Reiter vorerst nur „Firmeninformationen“ und „Dokumente“.</li>
 </ul>
 </div>
@@ -153,10 +157,11 @@ h2.block{font-size:15px;font-weight:700;color:var(--muted);margin:0 0 12px}
 <header><h3 id="h-brandtner">Unternehmen: Brandtner Metallbau</h3><a class="open" href="unternehmen-brandtner.html">Entwurf öffnen</a></header>
 <p class="sub">Gleicher Aufbau wie Weidner &amp; Partner, hier für ein Unternehmen mit laufendem Projekt.</p>
 <ul>
-<li>Karte heißt „Interessent (hohes Potenzial)“, daneben „Projektphase (1 offen)“.</li>
-<li>Vier Stufen aus der Historie: Anfrage Website, Termin vor Ort, AGB unterschrieben, Erster Auftrag, jeweils mit Kürzel und Datum.</li>
+<li>Karte heißt „Interessent (hohes Potenzial)“, daneben blaues Kästchen „Projektphase (1 aktiv)“.</li>
 <li>„AGB liegt vor“ in Blau mit Haken statt rot.</li>
-<li>Zusätzlicher Button „Profil senden“ oben rechts.</li>
+<li>Zusätzliche Buttons „Profil senden“ und „Neues Projekt“ oben rechts.</li>
+<li>Im Kasten „Akquise“ steht statt des Profilvertriebs „Ausbau / Rahmenvertrag“.</li>
+<li>Projekt-Status in der Tabelle: „Aktiv“ grün, „In Klärung“ gelb, „Besetzt“ grau.</li>
 </ul>
 </section>
 
@@ -194,8 +199,10 @@ h2.block{font-size:15px;font-weight:700;color:var(--muted);margin:0 0 12px}
 <div>
 <h4>Kopfbereich</h4>
 <ul>
-<li>Hinter dem Titel „Berufsfeld: …“.</li>
+<li>Status oben rechts heißt „Aktiv“ und ist grün.</li>
+<li>„Berufsfeld: …“ hinter dem Titel entfällt.</li>
 <li>Darunter Firma mit Adresse im dunkelblauen Kasten, darunter der Ort.</li>
+<li>Die Adress-Karte des Kunden ist dunkelblau wie die Unternehmensseiten, damit Kunden- und Projektangaben klar getrennt sind. Daneben eine Karte „Stellenanzeige“.</li>
 <li>Konditionen und AGB-Status rechtsbündig auf Höhe des Orts.</li>
 <li>Buttons „Stellenanzeige“ und „Dokument“ oben entfallen.</li>
 <li>Bei Vergütung zusätzlich „Besetzung ab“.</li>
