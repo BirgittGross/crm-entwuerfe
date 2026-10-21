@@ -9,8 +9,8 @@ Klickbare Entwürfe für Unternehmen, Kandidaten und Projekte im CRM, zur Abstim
 | `index.html` | Übersicht aller Entwürfe mit Änderungsliste |
 | `unternehmen-weidner.html` | Unternehmen in der Akquisephase (ohne Projekt) |
 | `unternehmen-brandtner.html` | Unternehmen mit hohem Potenzial und laufendem Projekt |
-| `kandidat.html` | Kandidaten-Header mit Lifecycle und Interviewnotes |
-| `projekt-assistenz.html` | Projekt mit Stelleninformationen und Stellenanzeigen |
+| `kandidat.html` | Kandidaten-Header mit Lifecycle, Interviewnotes sowie zugewiesenen und passenden Projekten als Kacheln |
+| `projekt-assistenz.html` | Projekt mit Stelleninformationen, Stellenanzeigen sowie zugewiesenen und passenden Kandidaten als Kacheln |
 | `projekt-fibu.html` | Zweites Projekt, gleicher Aufbau, zusätzlich mit den Reitern Historie und Wiedervorlage |
 
 ## Entwürfe ändern
@@ -23,5 +23,6 @@ Bitte als [Issue](https://github.com/BirgittGross/crm-entwuerfe/issues/new) anle
 
 ## Hinweise
 
-- Alle Daten sind Beispieldaten. Eingaben werden nicht gespeichert.
+- Alle Daten sind Beispieldaten.
+- Kandidaten-Header und Projekt-Entwürfe merken sich Eingaben im eigenen Browser (Verschiebungen, Zuweisungen, Kommentare usw.). „Beispieldaten zurücksetzen“ stellt den Ausgangsstand wieder her. Andere Personen sehen immer die Beispieldaten.
 - Die Seiten laufen ohne Server; `dc-lite.js` rendert die Entwurfs-Vorlagen mit React (Dateien `react*.min.js`).
