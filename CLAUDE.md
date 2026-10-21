@@ -4,6 +4,10 @@ Dieses Repository enthält klickbare CRM-Entwürfe (Unternehmen, Kandidaten, Pro
 
 Die Nutzerin ist keine Entwicklerin. Antworte auf Deutsch, kurz und ohne Fachjargon, und erkläre Fehler in einfachen Worten.
 
+## Ablage
+
+Dieser Ordner liegt in der Nextcloud unter `MANAGEMENT\3.1 CLAUDE\01_CRM-Entwuerfe_GitHub`. Hier nur die veröffentlichten Entwürfe ablegen. Screenshots, Notizen, Feedback und Briefings gehören in die Nachbarordner; die Struktur steht in `..\CLAUDE.md`.
+
 ## Ablauf bei jeder Änderung
 
 1. Zuerst `git pull` ausführen, damit der neueste Stand da ist.

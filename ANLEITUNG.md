@@ -15,16 +15,15 @@ Git ist das Programm, mit dem Änderungen zu GitHub übertragen werden.
 1. https://git-scm.com/download/win öffnen. Der Download startet automatisch.
 2. Die Datei ausführen und bei allen Fragen einfach **Weiter** bzw. **Next** klicken. Die Standardeinstellungen passen.
 
-### 2. GitHub Desktop installieren und das Repository holen
+### 2. Ordnerstruktur in der Nextcloud anlegen (nur einmal, im Büro)
 
-GitHub Desktop übernimmt die Anmeldung bei GitHub und legt die Dateien auf den Rechner.
+Alle Claude-Arbeiten liegen im Nextcloud-Ordner `MANAGEMENT\3.1 CLAUDE`, damit sie im Büro und zu Hause gleich aussehen.
 
-1. https://desktop.github.com öffnen, herunterladen und installieren.
-2. Beim ersten Start **Sign in to GitHub.com** wählen und mit dem Konto **BirgittGross** anmelden.
-3. **File › Clone repository** wählen, in der Liste **BirgittGross/crm-entwuerfe** anklicken.
-4. Als Speicherort (Local path) den Vorschlag übernehmen, z. B. `C:\Users\<Name>\Documents\GitHub\crm-entwuerfe`, und **Clone** klicken.
+1. Die Datei `Ordner-anlegen.ps1` in den Ordner `3.1 CLAUDE` legen.
+2. Rechtsklick darauf › **Mit PowerShell ausführen**.
+3. Das Skript legt die Unterordner und die Datei `CLAUDE.md` an und holt die Entwürfe von GitHub in den Ordner `01_CRM-Entwuerfe_GitHub`.
 
-Diesen Ordner merken: Hier liegen ab jetzt die Entwürfe.
+Auf dem zweiten Rechner ist dieser Schritt nicht nötig: Die Nextcloud bringt die Ordner von selbst mit. Dort nur Git (Schritt 1) und Claude Desktop (Schritt 3) installieren.
 
 ### 3. Claude Desktop installieren
 
@@ -34,13 +33,13 @@ Diesen Ordner merken: Hier liegen ab jetzt die Entwürfe.
 ### 4. Den Ordner in Claude öffnen
 
 1. In Claude Desktop zum Bereich **Code** wechseln. Das ist Claude Code: Damit kann Claude Dateien auf dem Rechner lesen, ändern und Befehle wie das Hochladen ausführen.
-2. Als Arbeitsordner den Ordner `crm-entwuerfe` aus Schritt 2 auswählen.
+2. Als Arbeitsordner den Nextcloud-Ordner **`3.1 CLAUDE`** auswählen (im Büro: `C:\Users\birgitt.gross\Nextcloud\MANAGEMENT\3.1 CLAUDE`, zu Hause entsprechend dort, wo die Nextcloud liegt).
 
 Hinweis: Für den Code-Bereich braucht man ein passendes Claude-Abo. Falls er nicht auftaucht oder gesperrt ist, hilft https://support.claude.com weiter.
 
 ### 5. Kurzer Test
 
-In Claude (Bereich Code, Ordner `crm-entwuerfe`) eintippen:
+In Claude (Bereich Code, Ordner `3.1 CLAUDE`) eintippen:
 
 > Hol den neuesten Stand von GitHub und sag mir, welche Entwürfe es gibt.
 
@@ -50,7 +49,7 @@ Claude fragt vor jedem Befehl um Erlaubnis. Mit **Erlauben** bestätigen. Wenn e
 
 ## Teil 2: Der tägliche Ablauf
 
-Im Repository liegt eine Datei `CLAUDE.md`. Claude liest sie automatisch und hält sich an den Ablauf: erst den neuesten Stand holen, dann ändern, kurz prüfen, die Änderungsliste in `index.html` ergänzen, speichern und hochladen.
+Im Ordner `3.1 CLAUDE` und im Entwurfs-Ordner liegt jeweils eine Datei `CLAUDE.md`. Claude liest sie und weiß damit, wohin welche Datei gehört. Bei den Entwürfen hält es sich an den Ablauf: erst den neuesten Stand holen, dann ändern, kurz prüfen, die Änderungsliste in `index.html` ergänzen, speichern und hochladen.
 
 Es reicht also, die gewünschte Änderung in normalen Worten zu beschreiben, zum Beispiel:
 
@@ -74,6 +73,9 @@ Tipps:
 
 ## Wenn etwas nicht klappt
 
+**Datei mit „Konflikt“ oder „conflicted copy“ im Namen**
+Nextcloud hat zwei Stände gefunden, meist weil auf zwei Rechnern gleichzeitig gearbeitet wurde. Claude sagen: „Es gibt eine Konfliktdatei, bitte prüfen.“ Nicht selbst löschen. Vorbeugen: nie gleichzeitig im Büro und zu Hause arbeiten und vor dem Start den grünen Haken der Nextcloud abwarten.
+
 **„Authentication failed“ oder ein Anmeldefenster beim Hochladen**
 Beim ersten Hochladen öffnet sich ein Browserfenster für die GitHub-Anmeldung. Mit **BirgittGross** anmelden und bestätigen. Danach merkt sich der Rechner die Anmeldung.
 
@@ -84,7 +86,7 @@ Jemand hat in der Zwischenzeit von einem anderen Rechner aus etwas hochgeladen. 
 Ein paar Minuten warten und mit **Strg + F5** neu laden. Unter https://github.com/BirgittGross/crm-entwuerfe/actions sieht man, ob die Veröffentlichung noch läuft (gelber Punkt) oder fertig ist (grüner Haken).
 
 **Claude kennt den Ordner nicht mehr**
-Im Bereich Code den Ordner `crm-entwuerfe` erneut als Arbeitsordner auswählen.
+Im Bereich Code den Ordner `3.1 CLAUDE` erneut als Arbeitsordner auswählen.
 
 ---
 
