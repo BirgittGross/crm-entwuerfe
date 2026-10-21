@@ -11,7 +11,11 @@ Klickbare Entwürfe für Unternehmen, Kandidaten und Projekte im CRM, zur Abstim
 | `unternehmen-brandtner.html` | Unternehmen mit hohem Potenzial und laufendem Projekt |
 | `kandidat.html` | Kandidaten-Header mit Lifecycle und Interviewnotes |
 | `projekt-assistenz.html` | Projekt mit Stelleninformationen und Stellenanzeigen |
-| `projekt-fibu.html` | Zweites Projekt, gleicher Aufbau |
+| `projekt-fibu.html` | Zweites Projekt, gleicher Aufbau, zusätzlich mit den Reitern Historie und Wiedervorlage |
+
+## Entwürfe ändern
+
+Die Entwürfe werden mit Claude Desktop direkt auf dem Rechner geändert und dann zu GitHub hochgeladen. Wie man einen Rechner dafür einrichtet und wie der tägliche Ablauf aussieht, steht in der **[Anleitung](ANLEITUNG.md)**. Die Regeln, an die sich Claude dabei hält, stehen in [`CLAUDE.md`](CLAUDE.md).
 
 ## Fragen und Rückmeldungen
 
